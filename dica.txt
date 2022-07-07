@@ -1,0 +1,3 @@
+definir primeiro os atributos da classe.
+Obs: a classe LocalDate possibilita trabalhar com data sem necessidade de importações.
+New serve pra instanciar o objeto e testar
