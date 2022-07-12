@@ -25,10 +25,6 @@ public class Main {
         mentoria1.setData(LocalDate.now());
 
 
-/*
-        System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria1);*/
 
         //Criação de um bootcamp
         Bootcamp bootcamp = new Bootcamp();
