@@ -24,8 +24,6 @@ public class Main {
         mentoria1.setDescricao("Descriação da mentoria de Java");
         mentoria1.setData(LocalDate.now());
 
-
-
         //Criação de um bootcamp
         Bootcamp bootcamp = new Bootcamp();
         bootcamp.setNome("Bootcamp Java developer");
@@ -58,13 +56,7 @@ public class Main {
         System.out.println("Conteudos inscritos de "+ Dev2.getNome() + Dev2.getConteudosInscritos());
         System.out.println("Conteudos Concluidos de "+ Dev2.getNome() + Dev2.getConteudosConcluidos());
         System.out.println("Total de XP de " + Dev2.getNome()+": " + Dev2.calcularTotalXP());
-
-
-
-
-
-
-
+        
 
     }
 }

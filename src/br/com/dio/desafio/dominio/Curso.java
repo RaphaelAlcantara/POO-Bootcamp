@@ -4,7 +4,7 @@ public class Curso extends Conteudo {
 
     @Override
     public double calcularXP() {
-        return XP_PADRAO * cargaHoraria; //sempre que um curso for criado o xp tem acrescimo de 40
+        return XP_PADRAO * cargaHoraria; //sempre que um curso for criado o xp multiplicado por hr
     }
 
     private int cargaHoraria;
