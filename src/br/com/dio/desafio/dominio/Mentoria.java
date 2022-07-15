@@ -5,6 +5,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class Mentoria extends Conteudo {
+
+    public Mentoria(String titulo, String descricao){
+        this.setTitulo(titulo);
+        this.setDescricao(descricao);
+        this.data = LocalDate.now();
+    }
+
     private LocalDate data;
 
 
