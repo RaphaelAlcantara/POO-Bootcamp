@@ -12,6 +12,9 @@ public class Mentoria extends Conteudo {
         this.data = LocalDate.now();
     }
 
+    public Mentoria() {
+    }
+
     private LocalDate data;
 
 

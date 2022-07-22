@@ -12,6 +12,9 @@ public class Bootcamp {
         this.descricao = descricao;
     }
 
+    public Bootcamp() {
+    }
+
     private String nome;
     private String descricao;
     private final LocalDate dataInicial = LocalDate.now();

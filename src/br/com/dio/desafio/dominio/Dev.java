@@ -6,15 +6,26 @@ import java.util.Optional;
 import java.util.Set;
 
 public class Dev {
+
+
+    public Dev() {
+    }
+
     private String nome;
+
+    public Dev(String nome) {
+        this.nome = nome;
+    }
+
     //utilizando o Set pois não tem repetição de valores
     private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>(); //LinkedHashSet para que os valores sejam ordenados pelo inserção
     private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
 
     //Criação de metodos
-    public void inscreverBootcamp(Bootcamp bootcamp){
+    public Set<Conteudo> inscreverBootcamp(Bootcamp bootcamp){
         this.conteudosInscritos.addAll(bootcamp.getConteudos()); //adiciona todos os conteudos do bootcamp ao dev
         bootcamp.getDevsInscritos().add(this); //adiciona o dev ao bootcamp
+        return null;
     }
 
     public void progredir(){

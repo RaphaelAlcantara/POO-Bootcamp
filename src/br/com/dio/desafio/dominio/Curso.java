@@ -7,6 +7,10 @@ public class Curso extends Conteudo {
         this.setCargaHoraria(cargaHoraria);
     }
 
+    public Curso() {
+
+    }
+
     @Override
     public double calcularXP() {
         return XP_PADRAO * cargaHoraria; //sempre que um curso for criado o xp multiplicado por hr
