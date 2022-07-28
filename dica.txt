@@ -12,3 +12,10 @@ List - Também chamada de seqüência. É uma coleção ordenada, que ao contrá
 conter valores duplicados.
 
 Map - Relação de chave-valor entre os elementos. Cada chave pode conter apenas um único valor associado.
+
+
+criar uma interface para titulo, descrição relacionado há mentoria, curso, bootcamp.
+Singleton dentro do fachada
+Decorator com xp ou dentro de mentoria
+
+MVC se for utilizar interface

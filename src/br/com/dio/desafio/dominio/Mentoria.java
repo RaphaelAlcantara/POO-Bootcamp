@@ -14,6 +14,11 @@ public class Mentoria extends Conteudo {
 
     private LocalDate data;
 
+    public Mentoria() {
+
+    }
+
+
 
     @Override
     public double calcularXP() {
