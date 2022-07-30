@@ -1,6 +1,7 @@
 package br.com.Repository;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import br.com.dio.desafio.dominio.Bootcamp;
 
@@ -10,6 +11,7 @@ public class BootcampRepository {
     public void create(Bootcamp bootcamp) {
         if (bootcamp != null) {
             bootcampList.add(bootcamp);
+            System.out.println("Bootcamp Criado!");
         }
     }
 
@@ -28,11 +30,12 @@ public class BootcampRepository {
                 return b;
             }
         }
+        return null;
     }
 
     public List<Bootcamp> readAll() {
         List<Bootcamp> btcList = new ArrayList<>();
-        for (Bootcamp b : BootcampList) {
+        for (Bootcamp b : bootcampList) {
             btcList.add(b);
         }
         return btcList;

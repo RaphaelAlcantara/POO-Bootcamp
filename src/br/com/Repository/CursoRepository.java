@@ -2,6 +2,8 @@ package br.com.Repository;
 
 import br.com.dio.desafio.dominio.Curso;
 import br.com.dio.desafio.dominio.Mentoria;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CursoRepository {
     List<Curso> cursoList = new ArrayList<>();
@@ -28,6 +30,7 @@ public class CursoRepository {
                 return c;
             }
         }
+        return null;
     }
 
     public List<Curso> readAll() {

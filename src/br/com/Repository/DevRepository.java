@@ -1,5 +1,9 @@
 package br.com.Repository;
 
+import java.util.ArrayList;
+import java.util.List;
+import br.com.dio.desafio.dominio.Dev;
+
 public class DevRepository {
     List<Dev> devList = new ArrayList<>();
 
@@ -23,6 +27,7 @@ public class DevRepository {
                 return d;
             }
         }
+        return null;
     }
 
     public List<Dev> readAll() {

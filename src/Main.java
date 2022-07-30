@@ -48,21 +48,32 @@ public class Main {
         System.out.println("Conteudos Concluidos de " + Dev2.getNome() + Dev2.getConteudosConcluidos());
         System.out.println("Total de XP de " + Dev2.getNome() + ": " + Dev2.calcularTotalXP());
 
-        // Teste.
-        System.out.printf("\n", "Teste logo após", "\n");
+        /*
+         * Teste.
+         * System.out.printf("\n", "Teste logo após", "\n");
+         * 
+         * Bootcamp bootcamp1 = null;
+         * facade.createBootcamp(bootcamp1, "Bootcamp Java developer",
+         * "Descrição do bootcamp de Java developer");
+         * Mentoria mentoria = null;
+         * facade.createMentoria(mentoria, "Mentoria Java",
+         * "Descrição da mentoria de Java");
+         * Dev dev = null;
+         * facade.createDev(dev, "Peu");
+         * Curso curso3 = null, curso4 = null;
+         * facade.createCurso(curso3, "Curso Java", "Descrição do curso de Java", 8);
+         * facade.createCurso(curso4, "Curso Python", "Descrição do curso de Python",
+         * 12);
+         * facade.inscreverDevNoBootcamp(dev, bootcamp1);
+         * facade.progredirDev(dev);
+         * facade.mostrarInformacoesDev(dev);
+         * facade.createBootcamp();
+         */
 
-        Bootcamp bootcamp1 = null;
-        facade.createBootcamp(bootcamp1, "Bootcamp Java developer", "Descrição do bootcamp de Java developer");
-        Mentoria mentoria = null;
-        facade.createMentoria(mentoria, "Mentoria Java", "Descrição da mentoria de Java");
-        Dev dev = null;
-        facade.createDev(dev, "Peu");
-        Curso curso3 = null, curso4 = null;
-        facade.createCurso(curso3, "Curso Java", "Descrição do curso de Java", 8);
-        facade.createCurso(curso4, "Curso Python", "Descrição do curso de Python", 12);
-        facade.inscreverDevNoBootcamp(dev, bootcamp1);
-        facade.progredirDev(dev);
-        facade.mostrarInformacoesDev(dev);
+        // Criar bootcamp, criar um dev, criar dois cursos, exibir dados do DEV.
+
+        Bootcamp btc1 = new Bootcamp();
+        facade.createBootcamp(btc1);
 
     }
 }
