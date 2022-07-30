@@ -25,6 +25,14 @@ public class DevRepository {
         }
     }
 
+    public List<Dev> readAll() {
+        List<Dev> dvList = new ArrayList<>();
+        for (Dev d : devList) {
+            dvList.add(d);
+        }
+        return dvList;
+    }
+
     public void delete(String nome) {
         for (Dev d : devList) {
             if (d.getNome().equals(nome)) {

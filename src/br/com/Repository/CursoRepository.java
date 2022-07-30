@@ -30,6 +30,14 @@ public class CursoRepository {
         }
     }
 
+    public List<Curso> readAll() {
+        List<Curso> crList = new ArrayList<>();
+        for (Curso c : cursoList) {
+            crList.add(c);
+        }
+        return crList;
+    }
+
     public void delete(String titulo) {
         for (Curso c : cursoList) {
             if (c.getTitulo().equals(titulo)) {

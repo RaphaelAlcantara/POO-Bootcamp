@@ -30,6 +30,14 @@ public class BootcampRepository {
         }
     }
 
+    public List<Bootcamp> readAll() {
+        List<Bootcamp> btcList = new ArrayList<>();
+        for (Bootcamp b : BootcampList) {
+            btcList.add(b);
+        }
+        return btcList;
+    }
+
     public void delete(String nome) {
         for (Bootcamp b : bootcampList) {
             if (b.getNome().equals(nome)) {

@@ -32,6 +32,14 @@ public class MentoriaRepository {
         }
     }
 
+    public List<Mentoria> readAll() {
+        List<Mentoria> mntList = new ArrayList<>();
+        for (Mentoria m : mentoriaList) {
+            mntList.add(m);
+        }
+        return mntList;
+    }
+
     public void delete(String titulo) {
         for (Mentoria m : mentoriaList) {
             if (m.getTitulo().equals(titulo)) {
