@@ -1,10 +1,12 @@
 package br.com.dio.desafio.dominio;
 
+import br.com.dio.desafio.dominio.Strategy.XP_interface;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-public class Mentoria extends Conteudo {
+public class Mentoria extends Conteudo implements XP_interface {
 
     public Mentoria(String titulo, String descricao){
         this.setTitulo(titulo);
@@ -15,13 +17,10 @@ public class Mentoria extends Conteudo {
     public Mentoria() {
     }
 
+
     private LocalDate data;
 
 
-    @Override
-    public double calcularXP() {
-        return XP_PADRAO + 20d; //sempre que uma mentoria for criada o xp tem acrescimo de 20
-    }
     public LocalDate getData() {
         return data;
     }
@@ -42,4 +41,9 @@ public class Mentoria extends Conteudo {
         return data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy", new Locale("pt", "BR")));
     }
 
+
+    @Override
+    public double calcularXP() {
+        return XP_PADRAO * 20d;
+    }
 }

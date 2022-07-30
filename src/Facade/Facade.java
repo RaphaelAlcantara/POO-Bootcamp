@@ -26,25 +26,23 @@ public class Facade {
     }
 
 
-
-
     public void ConteudosBootcamp(Bootcamp bootcamp, Curso curso, Mentoria mentoria){
         bootcamp.getConteudos().add(curso);
         bootcamp.getConteudos().add(mentoria);
     }
 
-    public Set<Conteudo> createDev(Dev dev, Set<Conteudo> conteudosInscritos){
+    public Dev createDev(Dev dev){
         dev.setNome(dev.getNome());
         dev.setConteudosInscritos(dev.getConteudosInscritos());
         System.out.println("Conteudos inscritos de " + dev.getNome() + dev.getConteudosInscritos());
-        return conteudosInscritos;
+        return dev;
     }
 
-    public Set<Conteudo> progressaoDev(Dev dev, Set<Conteudo> conteudosConcluidos){
+    public Set<Conteudo> progressaoDev(Dev dev){
         dev.progredir();
         System.out.println("Conteudos Concluidos de " + dev.getNome() + dev.getConteudosConcluidos());
         System.out.println("Total de XP de " + dev.getNome()+": " + dev.calcularTotalXP());
-        return conteudosConcluidos;
+        return dev.getConteudosConcluidos();
     }
 
     @Override

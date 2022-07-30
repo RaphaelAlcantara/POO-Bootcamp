@@ -1,6 +1,8 @@
 package br.com.dio.desafio.dominio;
 
-public class Curso extends Conteudo {
+import br.com.dio.desafio.dominio.Strategy.XP_interface;
+
+public class Curso extends Conteudo implements XP_interface {
     public Curso(String titulo, String descricao, int cargaHoraria){
         this.setTitulo(titulo);
         this.setDescricao(descricao);
@@ -9,11 +11,6 @@ public class Curso extends Conteudo {
 
     public Curso() {
 
-    }
-
-    @Override
-    public double calcularXP() {
-        return XP_PADRAO * cargaHoraria; //sempre que um curso for criado o xp multiplicado por hr
     }
 
     private int cargaHoraria;
@@ -34,4 +31,8 @@ public class Curso extends Conteudo {
     }
 
 
+    @Override
+    public double calcularXP() {
+        return XP_PADRAO * cargaHoraria;
+    }
 }

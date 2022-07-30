@@ -2,7 +2,9 @@ package br.com.dio.desafio.dominio;
 //mentoria e curso são conteudos
 //protected apenas os filhos podem acessar
 
-public abstract class Conteudo {
+import br.com.dio.desafio.dominio.Strategy.XP_interface;
+
+public class Conteudo implements XP_interface{
     //ambas classes tem metodo calcular XP
     protected static double XP_PADRAO = 10d;
 
@@ -30,7 +32,13 @@ public abstract class Conteudo {
         this.descricao = descricao;
     }
 
+    public double calcularXP(){
+        return 0;
+    }
+
+
+
     //Criar metodo para calcular XP e o abstract para que as classes filhas implementem obrigatoriamente
-    public abstract double calcularXP();
+    //public abstract double calcularXP();
 }
 
