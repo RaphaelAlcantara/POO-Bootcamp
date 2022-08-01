@@ -71,9 +71,34 @@ public class Main {
          */
 
         // Criar bootcamp, criar um dev, criar dois cursos, exibir dados do DEV.
-
-        Bootcamp btc1 = new Bootcamp();
+        System.out.printf("\n%20s", "TESTE", "\n");
+        Bootcamp btc1 = new Bootcamp("Bootcamp1", "Desc do Bootcamp 1");
         facade.createBootcamp(btc1);
+        Mentoria mnt1 = new Mentoria("Mentoria1", "Desc da Mentoria1");
+        facade.createMentoria(mnt1);
+        Mentoria mnt2 = new Mentoria("Mentoria2", "Desc da Mentoria2");
+        facade.createMentoria(mnt2);
+        Dev dv1 = new Dev("Dev1");
+        facade.createDev(dv1);
+        Curso crs1 = new Curso("Curso1", "Desc do Curso1", 16);
+        facade.createCurso(crs1);
+        Curso crs2 = new Curso("Curso2", "Desc do Curso2", 8);
+        facade.createCurso(crs2);
+
+        // String nomeDev = facade.readDev("Dev1").getNome();
+        // System.out.println(nomeDev);
+
+        facade.inserirConteudosNoBootcamp(btc1, crs1, mnt1);
+        facade.inserirConteudosNoBootcamp(btc1, crs2, mnt2);
+
+        facade.inscreverDevNoBootcamp(dv1, btc1);
+
+        facade.progredirDev(dv1);
+        facade.progredirDev(dv1);
+        facade.progredirDev(dv1);
+        facade.progredirDev(dv1);
+
+        facade.mostrarInformacoesDev(dv1);
 
     }
 }
