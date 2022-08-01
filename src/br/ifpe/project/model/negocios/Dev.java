@@ -88,8 +88,8 @@ public class Dev implements Observador {
 
     @Override
     public void enviarNotificacao(List<Dev> dev) {
-        System.out.println("ATENÇÃO");
+        System.out.println("==== Novo Bootcamp na plataforma ====");
         System.out.println("Inscreva-se agora no bootcamp !!!");
-        System.out.println("DEV RECEBEU A NOTIFICAÇÃO");
+
     }
 }

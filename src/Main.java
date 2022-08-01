@@ -3,6 +3,10 @@ import br.ifpe.project.model.negocios.Bootcamp;
 import br.ifpe.project.model.negocios.Curso;
 import br.ifpe.project.model.negocios.Dev;
 import br.ifpe.project.model.negocios.Mentoria;
+import br.ifpe.project.padroes.Repository.BootcampRepository;
+
+import java.sql.SQLOutput;
+import java.util.Scanner;
 
 //Criação de um bootcamp
 public class Main {
@@ -10,23 +14,97 @@ public class Main {
         Facade facade = new Facade();
 
         Curso curso1 = new Curso("Curso Java", "Descrição do curso de Java", 8);
+        facade.createCurso(curso1);
 
         Curso curso2 = new Curso("Curso Python", "Descrição do curso de Python", 12);
+        facade.createCurso(curso2);
+
+        Curso curso3 = new Curso("Curso Spring Framework", "Descrição do curso de Spring", 12);
 
         Mentoria mentoria1 = new Mentoria("Mentoria Java", "Descrição da mentoria de Java");
+        facade.createMentoria(mentoria1);
+
+        Mentoria mentoria2 = new Mentoria("Mentoria2", "Desc da Mentoria2");
+        facade.createMentoria(mentoria2);
 
         // Criação de um bootcamp
-        Bootcamp bootcamp = new Bootcamp("Bootcamp Java developer", "Descrição do bootcamp de Java developer");
+        Bootcamp bootcamp1 = new Bootcamp("Bootcamp Java developer", "Descrição do bootcamp de Java developer");
+        facade.createBootcamp(bootcamp1);
+
+        Bootcamp bootcamp2 = new Bootcamp("Spring Framework", "Descrição do Bootcamp de Spring");
+        facade.createBootcamp(bootcamp2);
+
 
         // Criação de dev
-        Dev Dev1 = new Dev();
+        Dev Dev1 = new Dev("Rapha");
+        facade.createDev(Dev1);
 
         // Adicionando conteudos
+        facade.inserirConteudosNoBootcamp(bootcamp1, curso1, mentoria1);
+        facade.inserirConteudosNoBootcamp(bootcamp1, curso2, mentoria2);
 
-        bootcamp.getConteudos().add(curso1);
-        bootcamp.getConteudos().add(curso2);
-        bootcamp.getConteudos().add(mentoria1);
+        facade.inscreverDevNoBootcamp(Dev1, bootcamp1);
+        facade.adicionarObservador(Dev1);
 
+
+        facade.progredirDev(Dev1);
+        facade.mostrarInformacoesDev(Dev1);
+
+        System.out.println("--------------------------------------------------------------------------------");
+
+        //Criação do segundo DEV
+        Dev dev2 = new Dev("Peu");
+        facade.createDev(dev2);
+
+        // Adicionando conteudos
+        facade.inserirConteudosNoBootcamp(bootcamp2, curso1, mentoria1);
+        facade.inserirConteudosNoBootcamp(bootcamp2, curso3, mentoria1);
+
+        facade.inscreverDevNoBootcamp(dev2, bootcamp2);
+        facade.adicionarObservador(dev2);
+
+
+        facade.progredirDev(dev2);
+        facade.progredirDev(dev2);
+        facade.mostrarInformacoesDev(dev2);
+        System.out.println("--------------------------------------------------------------------------------");
+
+
+        System.out.println("---- Enviar Notificação ----");
+        System.out.println("Notificação de " + Dev1.getNome());
+        System.out.println("Notificação de " + dev2.getNome());
+        facade.notificarObservadores();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*
         Dev1.setNome("Rapha");
         Dev1.inscreverBootcamp(bootcamp);
         System.out.println("Conteudos inscritos de " + Dev1.getNome() + Dev1.getConteudosInscritos());
@@ -50,7 +128,9 @@ public class Main {
 
 
 
+         */
 
+        /*
 
         // Criar bootcamp, criar um dev, criar dois cursos, exibir dados do DEV.
         System.out.printf("\n%20s", "TESTE", "\n");
@@ -88,6 +168,8 @@ public class Main {
         facade.createBootcamp(boot);
         facade.adicionarObservador(dv1);
         facade.notificarObservadores();
+
+         */
 
     }
 }

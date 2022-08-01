@@ -15,10 +15,9 @@ public class BootcampRepository {
     public void create(Bootcamp bootcamp) {
         if (bootcamp != null) {
             bootcampList.add(bootcamp);
-            System.out.println("Bootcamp Criado!");
-            System.out.println("==== Novo Bootcamp na plataforma ====");
-            System.out.println("Bootcamp " + bootcamp.getNome() + " Criado!");
             notificarObservadores();
+
+
         }
     }
 
@@ -72,6 +71,10 @@ public class BootcampRepository {
         for(Observador ob : observadores){
             ob.enviarNotificacao(devs);
         }
+    }
 
+
+    public int obs(){
+        return observadores.size();
     }
 }

@@ -148,6 +148,11 @@ public class Facade {
         this.rBootcamp.notificarObservadores();
     }
 
+    public int tamanhoListaObs(){
+        return this.rBootcamp.obs();
+
+    }
+
     /*
      * @Override
      * public String toString() {
