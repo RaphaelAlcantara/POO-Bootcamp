@@ -1,11 +1,10 @@
-package br.com.dio.desafio.dominio;
+package br.ifpe.project.model.negocios;
 
-import java.util.LinkedHashSet;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Set;
+import br.ifpe.project.padroes.Observer.Observador;
 
-public class Dev {
+import java.util.*;
+
+public class Dev implements Observador {
 
 
     public Dev() {
@@ -85,5 +84,12 @@ public class Dev {
     @Override
     public int hashCode() {
         return Objects.hash(nome, conteudosInscritos, conteudosConcluidos);
+    }
+
+    @Override
+    public void enviarNotificacao(List<Dev> dev) {
+        System.out.println("ATENÇÃO");
+        System.out.println("Inscreva-se agora no bootcamp !!!");
+        System.out.println("DEV RECEBEU A NOTIFICAÇÃO");
     }
 }

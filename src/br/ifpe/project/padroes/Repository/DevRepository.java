@@ -1,8 +1,8 @@
-package br.com.Repository;
+package br.ifpe.project.padroes.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import br.com.dio.desafio.dominio.Dev;
+import br.ifpe.project.model.negocios.Dev;
 
 public class DevRepository {
     List<Dev> devList = new ArrayList<>();

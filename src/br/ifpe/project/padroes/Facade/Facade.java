@@ -1,17 +1,16 @@
-package Facade;
+package br.ifpe.project.padroes.Facade;
 
-import br.com.Repository.CursoRepository;
-import br.com.Repository.DevRepository;
-import br.com.Repository.MentoriaRepository;
-import br.com.Repository.BootcampRepository;
-import br.com.dio.desafio.dominio.Mentoria;
-import br.com.dio.desafio.dominio.*;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Locale;
+import br.ifpe.project.padroes.Observer.Observador;
+import br.ifpe.project.padroes.Repository.CursoRepository;
+import br.ifpe.project.padroes.Repository.DevRepository;
+import br.ifpe.project.padroes.Repository.MentoriaRepository;
+import br.ifpe.project.padroes.Repository.BootcampRepository;
+import br.ifpe.project.model.negocios.Bootcamp;
+import br.ifpe.project.model.negocios.Curso;
+import br.ifpe.project.model.negocios.Dev;
+import br.ifpe.project.model.negocios.Mentoria;
+
 import java.util.List;
-
-import java.util.Set;
 
 public class Facade {
 
@@ -27,7 +26,7 @@ public class Facade {
         this.rCurso = new CursoRepository();
     }
 
-    // Métodos Facade Bootcamp
+    // Métodos br.ifpe.project.padroes.Repository.Facade Bootcamp
 
     public void createBootcamp(Bootcamp b) {
         this.rBootcamp.create(b);
@@ -49,7 +48,7 @@ public class Facade {
         return this.rBootcamp.readAll();
     }
 
-    // Métodos Facade Dev
+    // Métodos br.ifpe.project.padroes.Repository.Facade Dev
 
     public void createDev(Dev d) {
         this.rDev.create(d);
@@ -71,7 +70,7 @@ public class Facade {
         return this.rDev.readAll();
     }
 
-    // Métodos Facade Mentoria
+    // Métodos br.ifpe.project.padroes.Repository.Facade Mentoria
 
     public void createMentoria(Mentoria m) {
         this.rMentoria.create(m);
@@ -93,7 +92,7 @@ public class Facade {
         return this.rMentoria.readAll();
     }
 
-    // Métodos Facade Curso
+    // Métodos br.ifpe.project.padroes.Repository.Facade Curso
 
     public void createCurso(Curso c) {
         this.rCurso.create(c);
@@ -115,7 +114,7 @@ public class Facade {
         return this.rCurso.readAll();
     }
 
-    // Fim dos Facade
+    // Fim dos br.ifpe.project.padroes.Repository.Facade
 
     public void inserirConteudosNoBootcamp(Bootcamp bootcamp, Curso curso, Mentoria mentoria) {
         bootcamp.getConteudos().add(curso);
@@ -136,10 +135,23 @@ public class Facade {
         dev.progredir();
     }
 
+
+    public void adicionarObservador(Observador observador){
+        this.rBootcamp.adicionarObservador(observador);
+    }
+
+    public void removerObservador(Observador observador){
+        this.rBootcamp.removerObservador(observador);
+    }
+
+    public void notificarObservadores(){
+        this.rBootcamp.notificarObservadores();
+    }
+
     /*
      * @Override
      * public String toString() {
-     * return "Facade{" +
+     * return "br.ifpe.project.padroes.Repository.Facade{" +
      * "bootcamp=" + bootcamp +
      * ", curso=" + curso +
      * ", mentoria=" + mentoria +

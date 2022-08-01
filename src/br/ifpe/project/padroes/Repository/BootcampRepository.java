@@ -1,17 +1,24 @@
-package br.com.Repository;
+package br.ifpe.project.padroes.Repository;
 
 import java.util.List;
 import java.util.ArrayList;
 
-import br.com.dio.desafio.dominio.Bootcamp;
+import br.ifpe.project.model.negocios.Bootcamp;
+import br.ifpe.project.model.negocios.Dev;
+import br.ifpe.project.padroes.Observer.Observador;
 
 public class BootcampRepository {
     List<Bootcamp> bootcampList = new ArrayList<>();
+    List<Dev> devs = new ArrayList<>();
+    List<Observador> observadores = new ArrayList<>();
 
     public void create(Bootcamp bootcamp) {
         if (bootcamp != null) {
             bootcampList.add(bootcamp);
             System.out.println("Bootcamp Criado!");
+            System.out.println("==== Novo Bootcamp na plataforma ====");
+            System.out.println("Bootcamp " + bootcamp.getNome() + " Criado!");
+            notificarObservadores();
         }
     }
 
@@ -47,5 +54,24 @@ public class BootcampRepository {
                 bootcampList.remove(bootcampList.indexOf(b));
             }
         }
+    }
+
+
+    public void adicionarObservador(Observador observador){
+        if(!observadores.contains(observador)){
+            observadores.add(observador);
+        }
+    }
+
+
+    public void removerObservador(Observador observador){
+        observadores.remove(observador);
+    }
+
+    public void notificarObservadores(){
+        for(Observador ob : observadores){
+            ob.enviarNotificacao(devs);
+        }
+
     }
 }

@@ -1,7 +1,7 @@
-package br.com.Repository;
+package br.ifpe.project.padroes.Repository;
 
-import br.com.dio.desafio.dominio.Curso;
-import br.com.dio.desafio.dominio.Mentoria;
+import br.ifpe.project.model.negocios.Curso;
+
 import java.util.ArrayList;
 import java.util.List;
 

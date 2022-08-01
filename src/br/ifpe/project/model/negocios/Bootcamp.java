@@ -1,12 +1,16 @@
-package br.com.dio.desafio.dominio;
+package br.ifpe.project.model.negocios;
+
+import br.ifpe.project.padroes.Observer.Observador;
 
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class Bootcamp {
+
+    List<Dev> devs = new ArrayList<>();
+    List<Observador> observadores = new ArrayList<>();
+    List<Bootcamp> bootcampList = new ArrayList<>();
+
     public Bootcamp(String nome, String descricao){
         this.nome = nome;
         this.descricao = descricao;

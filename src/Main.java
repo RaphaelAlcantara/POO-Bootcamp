@@ -1,8 +1,8 @@
-import Facade.Facade;
-import br.com.dio.desafio.dominio.*;
-
-import java.time.LocalDate;
-import java.util.Set;
+import br.ifpe.project.padroes.Facade.Facade;
+import br.ifpe.project.model.negocios.Bootcamp;
+import br.ifpe.project.model.negocios.Curso;
+import br.ifpe.project.model.negocios.Dev;
+import br.ifpe.project.model.negocios.Mentoria;
 
 //Criação de um bootcamp
 public class Main {
@@ -48,27 +48,9 @@ public class Main {
         System.out.println("Conteudos Concluidos de " + Dev2.getNome() + Dev2.getConteudosConcluidos());
         System.out.println("Total de XP de " + Dev2.getNome() + ": " + Dev2.calcularTotalXP());
 
-        /*
-         * Teste.
-         * System.out.printf("\n", "Teste logo após", "\n");
-         * 
-         * Bootcamp bootcamp1 = null;
-         * facade.createBootcamp(bootcamp1, "Bootcamp Java developer",
-         * "Descrição do bootcamp de Java developer");
-         * Mentoria mentoria = null;
-         * facade.createMentoria(mentoria, "Mentoria Java",
-         * "Descrição da mentoria de Java");
-         * Dev dev = null;
-         * facade.createDev(dev, "Peu");
-         * Curso curso3 = null, curso4 = null;
-         * facade.createCurso(curso3, "Curso Java", "Descrição do curso de Java", 8);
-         * facade.createCurso(curso4, "Curso Python", "Descrição do curso de Python",
-         * 12);
-         * facade.inscreverDevNoBootcamp(dev, bootcamp1);
-         * facade.progredirDev(dev);
-         * facade.mostrarInformacoesDev(dev);
-         * facade.createBootcamp();
-         */
+
+
+
 
         // Criar bootcamp, criar um dev, criar dois cursos, exibir dados do DEV.
         System.out.printf("\n%20s", "TESTE", "\n");
@@ -99,6 +81,13 @@ public class Main {
         facade.progredirDev(dv1);
 
         facade.mostrarInformacoesDev(dv1);
+
+        //Teste do observer
+        System.out.println("TESTE DO OBSERVER");
+        Bootcamp boot = new Bootcamp("Spring Framework", "Descrição do Bootcamp de Spring");
+        facade.createBootcamp(boot);
+        facade.adicionarObservador(dv1);
+        facade.notificarObservadores();
 
     }
 }

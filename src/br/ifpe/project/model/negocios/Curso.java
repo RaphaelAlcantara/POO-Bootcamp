@@ -1,4 +1,6 @@
-package br.com.dio.desafio.dominio;
+package br.ifpe.project.model.negocios;
+
+import br.ifpe.project.padroes.Strategy.XP_interface;
 
 public class Curso extends Conteudo {
     public Curso(String titulo, String descricao, int cargaHoraria){

@@ -1,4 +1,4 @@
-package br.com.dio.desafio.dominio;
+package br.ifpe.project.model.negocios;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
