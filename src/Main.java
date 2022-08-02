@@ -3,10 +3,7 @@ import br.ifpe.project.model.negocios.Bootcamp;
 import br.ifpe.project.model.negocios.Curso;
 import br.ifpe.project.model.negocios.Dev;
 import br.ifpe.project.model.negocios.Mentoria;
-import br.ifpe.project.padroes.Repository.BootcampRepository;
 
-import java.sql.SQLOutput;
-import java.util.Scanner;
 
 //Criação de um bootcamp
 public class Main {
@@ -35,6 +32,7 @@ public class Main {
         facade.createBootcamp(bootcamp2);
 
 
+
         // Criação de dev
         Dev Dev1 = new Dev("Rapha");
         facade.createDev(Dev1);
@@ -46,9 +44,13 @@ public class Main {
         facade.inscreverDevNoBootcamp(Dev1, bootcamp1);
         facade.adicionarObservador(Dev1);
 
-
+        System.out.println("---- Envio Notificação ----");
+        System.out.println("Notificação de " + Dev1.getNome());
+        facade.notificarObservadores();
+        System.out.println("--------------------------------------------------------------------------------");
         facade.progredirDev(Dev1);
         facade.mostrarInformacoesDev(Dev1);
+
 
         System.out.println("--------------------------------------------------------------------------------");
 
@@ -61,19 +63,27 @@ public class Main {
         facade.inserirConteudosNoBootcamp(bootcamp2, curso3, mentoria1);
 
         facade.inscreverDevNoBootcamp(dev2, bootcamp2);
-        facade.adicionarObservador(dev2);
 
 
         facade.progredirDev(dev2);
         facade.progredirDev(dev2);
+
+        System.out.println("---- Envio Notificação ----");
+        System.out.println("Notificação de " + dev2.getNome());
+        facade.notificarObservadores();
+        System.out.println("--------------------------------------------------------------------------------");
+
         facade.mostrarInformacoesDev(dev2);
         System.out.println("--------------------------------------------------------------------------------");
 
 
-        System.out.println("---- Enviar Notificação ----");
-        System.out.println("Notificação de " + Dev1.getNome());
-        System.out.println("Notificação de " + dev2.getNome());
-        facade.notificarObservadores();
+        Bootcamp bootcamp3 = new Bootcamp("Python Developer", "Descrição do Bootcamp de Python");
+        facade.createBootcamp(bootcamp3);
+
+
+
+
+
 
 
 

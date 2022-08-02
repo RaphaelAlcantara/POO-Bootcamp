@@ -73,7 +73,6 @@ public class BootcampRepository {
         }
     }
 
-
     public int obs(){
         return observadores.size();
     }

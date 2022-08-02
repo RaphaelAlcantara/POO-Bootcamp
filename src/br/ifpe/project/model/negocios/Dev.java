@@ -86,10 +86,10 @@ public class Dev implements Observador {
         return Objects.hash(nome, conteudosInscritos, conteudosConcluidos);
     }
 
+
     @Override
-    public void enviarNotificacao(List<Dev> dev) {
+    public void enviarNotificacao(List<Dev> devs) {
         System.out.println("==== Novo Bootcamp na plataforma ====");
         System.out.println("Inscreva-se agora no bootcamp !!!");
-
     }
 }
