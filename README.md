@@ -35,7 +35,7 @@ Fornece uma interface unificada para um conjunto de interfaces em um subsistema.
 
 <h3>🔺 REPOSITORY:</h3>
 
-<p>O padrão Repository separa a lógica de acesso a dados e mapeia essa lógica para entidades na lógica de negócio. Ele trabalha com as entidades de domínio e realiza a lógica de acesso a dados.4 </p>
+<p>O padrão Repository separa a lógica de acesso a dados e mapeia essa lógica para entidades na lógica de negócio. Ele trabalha com as entidades de domínio e realiza a lógica de acesso a dados. </p>
 
 <h3> 🔺 STRATEGY:</h3>
 
@@ -80,8 +80,6 @@ Dentro do FACADE chamamos os métodos de cada repositorio construído, externali
         this.rMentoria = new MentoriaRepository();
         this.rCurso = new CursoRepository();
     }
-
-    // Métodos br.ifpe.project.padroes.Repository.Facade Bootcamp
 
     public void createBootcamp(Bootcamp b) {
         this.rBootcamp.create(b);
