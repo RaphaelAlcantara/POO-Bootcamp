@@ -1,8 +1,13 @@
 package br.ifpe.project.model.negocios;
 
-import br.ifpe.project.padroes.Strategy.XP_interface;
+import br.ifpe.project.padroes.Strategy.XPCursoStrategy;
 
-public class Curso extends Conteudo {
+public class Curso extends XPCursoStrategy{
+
+    private String titulo;
+    private String descricao;
+
+
     public Curso(String titulo, String descricao, int cargaHoraria){
         this.setTitulo(titulo);
         this.setDescricao(descricao);
@@ -25,6 +30,27 @@ public class Curso extends Conteudo {
 
     public void setCargaHoraria(int cargaHoraria) {
         this.cargaHoraria = cargaHoraria;
+    }
+
+
+    @Override
+    public String getTitulo() {
+        return titulo;
+    }
+
+    @Override
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    @Override
+    public String getDescricao() {
+        return descricao;
+    }
+
+    @Override
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     @Override

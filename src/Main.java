@@ -1,84 +1,89 @@
-import br.ifpe.project.padroes.Facade.Facade;
+import br.ifpe.project.padroes.Facade.FacadeBootcamp;
+import br.ifpe.project.padroes.Facade.FacadeCurso;
+import br.ifpe.project.padroes.Facade.FacadeDev;
 import br.ifpe.project.model.negocios.Bootcamp;
 import br.ifpe.project.model.negocios.Curso;
 import br.ifpe.project.model.negocios.Dev;
 import br.ifpe.project.model.negocios.Mentoria;
+import br.ifpe.project.padroes.Facade.FacadeMentoria;
 
 
 //Criação de um bootcamp
 public class Main {
     public static void main(String[] args) {
-        Facade facade = new Facade();
+        FacadeDev facadeDev = new FacadeDev();
+        FacadeBootcamp facadeBootcamp = new FacadeBootcamp();
+        FacadeCurso facadeCurso = new FacadeCurso();
+        FacadeMentoria facadeMentoria = new FacadeMentoria();
 
         Curso curso1 = new Curso("Curso Java", "Descrição do curso de Java", 8);
-        facade.createCurso(curso1);
+        facadeCurso.createCurso(curso1);
 
         Curso curso2 = new Curso("Curso Python", "Descrição do curso de Python", 12);
-        facade.createCurso(curso2);
+        facadeCurso.createCurso(curso2);
 
         Curso curso3 = new Curso("Curso Spring Framework", "Descrição do curso de Spring", 12);
 
         Mentoria mentoria1 = new Mentoria("Mentoria Java", "Descrição da mentoria de Java");
-        facade.createMentoria(mentoria1);
+        facadeMentoria.createMentoria(mentoria1);
 
         Mentoria mentoria2 = new Mentoria("Mentoria2", "Desc da Mentoria2");
-        facade.createMentoria(mentoria2);
+        facadeMentoria.createMentoria(mentoria2);
 
         // Criação de um bootcamp
         Bootcamp bootcamp1 = new Bootcamp("Bootcamp Java developer", "Descrição do bootcamp de Java developer");
-        facade.createBootcamp(bootcamp1);
+        facadeBootcamp.createBootcamp(bootcamp1);
 
         Bootcamp bootcamp2 = new Bootcamp("Spring Framework", "Descrição do Bootcamp de Spring");
-        facade.createBootcamp(bootcamp2);
+        facadeBootcamp.createBootcamp(bootcamp2);
 
 
 
         // Criação de dev
         Dev Dev1 = new Dev("Rapha");
-        facade.createDev(Dev1);
+        facadeDev.createDev(Dev1);
 
         // Adicionando conteudos
-        facade.inserirConteudosNoBootcamp(bootcamp1, curso1, mentoria1);
-        facade.inserirConteudosNoBootcamp(bootcamp1, curso2, mentoria2);
+        facadeBootcamp.inserirConteudosNoBootcamp(bootcamp1, curso1, mentoria1);
+        facadeBootcamp.inserirConteudosNoBootcamp(bootcamp1, curso2, mentoria2);
 
-        facade.inscreverDevNoBootcamp(Dev1, bootcamp1);
-        facade.adicionarObservador(Dev1);
+        facadeBootcamp.inscreverDevNoBootcamp(Dev1, bootcamp1);
+        facadeBootcamp.adicionarObservador(Dev1);
 
         System.out.println("---- Envio Notificação ----");
         System.out.println("Notificação de " + Dev1.getNome());
-        facade.notificarObservadores();
-        System.out.println("--------------------------------------------------------------------------------");
-        facade.progredirDev(Dev1);
-        facade.mostrarInformacoesDev(Dev1);
+        facadeBootcamp.notificarObservadores();
+        System.out.println();
+        facadeDev.progredirDev(Dev1);
+        facadeDev.mostrarInformacoesDev(Dev1);
 
 
         System.out.println("--------------------------------------------------------------------------------");
 
         //Criação do segundo DEV
         Dev dev2 = new Dev("Peu");
-        facade.createDev(dev2);
+        facadeDev.createDev(dev2);
 
         // Adicionando conteudos
-        facade.inserirConteudosNoBootcamp(bootcamp2, curso1, mentoria1);
-        facade.inserirConteudosNoBootcamp(bootcamp2, curso3, mentoria1);
+        facadeBootcamp.inserirConteudosNoBootcamp(bootcamp2, curso1, mentoria1);
+        facadeBootcamp.inserirConteudosNoBootcamp(bootcamp2, curso3, mentoria1);
 
-        facade.inscreverDevNoBootcamp(dev2, bootcamp2);
+        facadeBootcamp.inscreverDevNoBootcamp(dev2, bootcamp2);
 
 
-        facade.progredirDev(dev2);
-        facade.progredirDev(dev2);
+        facadeDev.progredirDev(dev2);
+        facadeDev.progredirDev(dev2);
 
         System.out.println("---- Envio Notificação ----");
         System.out.println("Notificação de " + dev2.getNome());
-        facade.notificarObservadores();
-        System.out.println("--------------------------------------------------------------------------------");
-
-        facade.mostrarInformacoesDev(dev2);
+        facadeBootcamp.notificarObservadores();
+        System.out.println();
+        facadeDev.mostrarInformacoesDev(dev2);
         System.out.println("--------------------------------------------------------------------------------");
 
 
         Bootcamp bootcamp3 = new Bootcamp("Python Developer", "Descrição do Bootcamp de Python");
-        facade.createBootcamp(bootcamp3);
+        facadeBootcamp.createBootcamp(bootcamp3);
 
 
 

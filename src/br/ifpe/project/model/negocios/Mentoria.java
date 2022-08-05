@@ -1,10 +1,12 @@
 package br.ifpe.project.model.negocios;
 
+import br.ifpe.project.padroes.Strategy.XPMentoriaStrategy;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-public class Mentoria extends Conteudo {
+public class Mentoria extends XPMentoriaStrategy {
 
     public Mentoria(String titulo, String descricao){
         this.setTitulo(titulo);
@@ -12,16 +14,10 @@ public class Mentoria extends Conteudo {
         this.data = LocalDate.now();
     }
 
-    public Mentoria() {
-    }
+    public Mentoria() {}
 
     private LocalDate data;
 
-
-    @Override
-    public double calcularXP() {
-        return XP_PADRAO + 20d; //sempre que uma mentoria for criada o xp tem acrescimo de 20
-    }
     public LocalDate getData() {
         return data;
     }
