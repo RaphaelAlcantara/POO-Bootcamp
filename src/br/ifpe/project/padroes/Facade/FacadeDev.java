@@ -15,6 +15,16 @@ import java.util.List;
 public class FacadeDev {
     private DevRepository rDev = null;
 
+    // Implementação do Singleton no FacadeDev
+    public static FacadeDev myself = null;
+
+    public static FacadeDev getCurrentInstance() {
+        if (myself == null) {
+            myself = new FacadeDev();
+        }
+        return myself;
+    }
+
     public FacadeDev() {
         this.rDev = new DevRepository();
     }

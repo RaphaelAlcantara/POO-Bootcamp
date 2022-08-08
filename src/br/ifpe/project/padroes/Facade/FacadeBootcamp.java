@@ -12,6 +12,16 @@ import java.util.List;
 public class FacadeBootcamp {
     private BootcampRepository rBootcamp = null;
 
+    // Implementação do Singleton no FacadeBootcamp
+    public static FacadeBootcamp myself = null;
+
+    public static FacadeBootcamp getCurrentInstance() {
+        if (myself == null) {
+            myself = new FacadeBootcamp();
+        }
+        return myself;
+    }
+
     public FacadeBootcamp() {
         this.rBootcamp = new BootcampRepository();
     }
@@ -19,7 +29,6 @@ public class FacadeBootcamp {
     public void createBootcamp(Bootcamp b) {
         this.rBootcamp.create(b);
     }
-
 
     public void inserirConteudosNoBootcamp(Bootcamp bootcamp, Curso curso, Mentoria mentoria) {
         bootcamp.getConteudos().add(curso);
@@ -30,19 +39,16 @@ public class FacadeBootcamp {
         dev.inscreverBootcamp(bootcamp);
     }
 
-
-    public void adicionarObservador(Observador observador){
+    public void adicionarObservador(Observador observador) {
         this.rBootcamp.adicionarObservador(observador);
     }
 
-    public void removerObservador(Observador observador){
+    public void removerObservador(Observador observador) {
         this.rBootcamp.removerObservador(observador);
     }
 
-    public void notificarObservadores(){
+    public void notificarObservadores() {
         this.rBootcamp.notificarObservadores();
     }
-
-
 
 }
