@@ -247,31 +247,38 @@ Na main instanciou os objetos e chamou os métodos de forma mais indireta possí
 
 public class Main {
 public static void main(String[] args) {
-    Facade facade = new Facade();
-    Curso curso1 = new Curso("Curso Java", "Descrição do curso de Java", 8);
-    facade.createCurso(curso1);
+    FacadeDev facadeDev = new FacadeDev();
+    FacadeBootcamp facadeBootcamp = new FacadeBootcamp();
+    FacadeCurso facadeCurso = new FacadeCurso();
+    FacadeMentoria facadeMentoria = new FacadeMentoria();
 
+    Curso curso1 = new Curso("Curso Java", "Descrição do curso de Java", 8);
+    facadeCurso.createCurso(curso1);
+    
+    Mentoria mentoria1 = new Mentoria("Mentoria Java", "Descrição da mentoria de Java");
+    facadeMentoria.createMentoria(mentoria1);
+    
     Bootcamp bootcamp1 = new Bootcamp("Bootcamp Java developer", "Descrição do bootcamp de Java developer");
-    facade.createBootcamp(bootcamp1);
+    facadeBootcamp.createBootcamp(bootcamp1);
     
      // Criação de dev
      Dev Dev1 = new Dev("Rapha");
-     facade.createDev(Dev1);
+     facadeDev.createDev(Dev1);
 
      // Adicionando conteudos
-     facade.inserirConteudosNoBootcamp(bootcamp1, curso1, mentoria1);
+     facadeBootcamp.inserirConteudosNoBootcamp(bootcamp1, curso1, mentoria1);
      
-     facade.inscreverDevNoBootcamp(Dev1, bootcamp1);
-     facade.adicionarObservador(Dev1);
+     facadeBootcamp.inscreverDevNoBootcamp(Dev1, bootcamp1);
+     facadeBootcamp.adicionarObservador(Dev1);
 
 
-     facade.progredirDev(Dev1);
-     facade.mostrarInformacoesDev(Dev1);
+     facadeDev.progredirDev(Dev1);
+     facadeDev.mostrarInformacoesDev(Dev1);
      
      System.out.println("---- Enviar Notificação ----");
      System.out.println("Notificação de " + Dev1.getNome());
     
-     facade.notificarObservadores();
+     facadeBootcamp.notificarObservadores();
      
 ~~~
 
