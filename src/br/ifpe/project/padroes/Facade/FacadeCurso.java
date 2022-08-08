@@ -9,6 +9,16 @@ public class FacadeCurso {
 
     private CursoRepository rCurso = null;
 
+    // Implementação do Singleton no FacadeCurso
+    public static FacadeCurso myself = null;
+
+    public static FacadeCurso getCurrentInstance() {
+        if (myself == null) {
+            myself = new FacadeCurso();
+        }
+        return myself;
+    }
+
     public FacadeCurso() {
         this.rCurso = new CursoRepository();
     }
