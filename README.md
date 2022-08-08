@@ -61,77 +61,115 @@ public class BootcampRepository{
 ~~~
 
 <h3>🔻 FACADE:</h3> 
-<p>Ao construir o grosso do sistema e executarmos a main, foi notado que a aplicação cliente (main) estava tendo acesso direto aos métodos referentes a cada objeto. Isso se tornou um problema, pois ao acessar diretamente um método, pode ocorrer da aplicação cliente acabar tendo acesso há método que não se refere a camada cliente e sim, a camada de controladores, por exemplo.
+<p>Ao construir o grosso do sistema e executarmos a main, foi notado que a aplicação cliente (main) estava tendo 
+acesso direto aos métodos referentes a cada objeto. Isso se tornou um problema, pois ao acessar diretamente 
+um método, pode ocorrer da aplicação cliente acabar tendo acesso há método que não se refere a camada cliente 
+e sim, a camada de controladores, por exemplo.
 <br>
-Portanto, iniciamos a construção do padrão de projeto FACHADA que consiste em saber externalizar apenas aquilo que você quer que o cliente tenha acesso, abstraindo as outras camadas.
-Dentro do FACADE chamamos os métodos de cada repositorio construído, externalizando apenas os métodos da camada cliente.
+Portanto, iniciamos a construção do padrão de projeto FACHADA que consiste em saber externalizar apenas aquilo 
+que você quer que o cliente tenha acesso, abstraindo as outras camadas. Dentro do FACADE chamamos os métodos 
+de cada repositorio construído, externalizando apenas os métodos da camada cliente.
 
+Foi construído uma fachada para cada modelo, e dentro dessa fachada foi chamado apenas os métodos referentes aquele modelo. 
+Se aplicar uma única fachada para todos os modelos, acabamos tendo um outro problema de complexidade, visto que se tem 
+a chamada de diversos métods, com assinaturas distintas e referências a objetos diferentes. 
 ~~~
-    public class Facade {
-
+    public class FacadeBootcamp {
     private BootcampRepository rBootcamp = null;
-    private DevRepository rDev = null;
-    private MentoriaRepository rMentoria = null;
+
+    public FacadeBootcamp() {
+        this.rBootcamp = new BootcampRepository();
+    }
+
+ }
+   public class FacadeCurso {
+
     private CursoRepository rCurso = null;
 
-    public Facade() {
-        this.rBootcamp = new BootcampRepository();
-        this.rDev = new DevRepository();
-        this.rMentoria = new MentoriaRepository();
+    public FacadeCurso() {
         this.rCurso = new CursoRepository();
     }
+}
 
-    public void createBootcamp(Bootcamp b) {
-        this.rBootcamp.create(b);
+public class FacadeDev {
+    private DevRepository rDev = null;
+
+    public FacadeDev() {
+        this.rDev = new DevRepository();
     }
     
-    public void createDev(Dev d) {
-        this.rDev.create(d);
+ }
+ 
+ public class FacadeMentoria {
+    private MentoriaRepository rMentoria = null;
+
+    public FacadeMentoria() {
+        this.rMentoria = new MentoriaRepository();
     }
-    
-    
-    public void createMentoria(Mentoria m) {
-        this.rMentoria.create(m);
-    }
-    
-    public void createCurso(Curso c) {
-        this.rCurso.create(c);
-    }
+
 
 ~~~
 
 <h3>🔻 STRATEGY: </h3>
-Nos objetos curso e mentoria, cada um tem uma implementação distinta. Entretanto, as duas classes herdam de Conteúdo. Portanto, para diferenciar suas implementações, o metódo foi isolado e colocado dentro de uma interface. E essa interface foi implementada dentro da classe Conteúdo fazendo com que as classes principais, Curso e Mentoria, pudessem herdar esse método e cada uma definir sua regra para implementação
+Nos objetos curso e mentoria, cada um tem uma implementação distinta. Entretanto, 
+as duas classes herdam de Conteúdo. Portanto, para diferenciar suas implementações, 
+o metódo foi isolado e colocado dentro de uma interface. E essa interface foi implementada dentro 
+da classe Conteúdo fazendo com que as classes principais, Curso e Mentoria, pudessem herdar esse método e cada uma definir sua regra para implementação
 
+
+Nos objetos curso e mentoria, cada um tem uma implementação distinta. 
+Portanto, foi criado uma interface geral que contém a assinatura desse método. 
+Esta interface é implementada dentro da classe conteúdo e contém uma assinatura desse método, 
+e para isolar de forma mais efetiva, criou-se uma classe para cada regra do XP. 
+XPCursoStrategy contém a implementação do método referente a curso, e é implementada na classe modelo Curso.
+
+A classe Curso necessita de uma implementação concreta do método na própria classe visto que este método é chamado na classe Dev
+
+Já a classe Mentoria implementa a classe XPMentoriaStrategy. Nesta classe contém a implementação isolada do método que diz respeito somente a mentoria.
 ~~~
-public interface XP_interface {
+public interface XPStrategy {
 
-    public double calcularXP();
+    double XP_PADRAO = 10d;
+    double calcularXP();
 }
 
-public class Conteudo implements XP_interface {
-  
-    protected static double XP_PADRAO = 10d;
+
+public  abstract  class Conteudo implements XPStrategy {
+
+    //adicionar o que as classes tem em comum
+    private String titulo;
+    private String descricao;
+    
+ }
+ 
+public class XPCursoStrategy extends Conteudo {
+    
     @Override
     public double calcularXP() {
-        return 0;
+        return XP_PADRAO * cargaHoraria;
+    }
+}
+
+public class XPMentoriaStrategy extends Conteudo {
+
+    @Override
+    public double calcularXP() {
+        return XP_PADRAO + 20d;
+    }
+}
+
+public class Curso extends XPCursoStrategy{
+
+@Override
+    public double calcularXP() {
+        return XP_PADRAO * cargaHoraria; //sempre que um curso for criado o xp multiplicado por hr
     }
     
 }
 
-public class Curso extends Conteudo{
-    @Override
-    public double calcularXP() {
-        return XP_PADRAO * cargaHoraria; //sempre que um curso for criado o xp multiplicado por hr
-    }
-}
+public class Mentoria extends XPMentoriaStrategy {}
 
-public class Mentoria extends Conteudo{
-     @Override
-    public double calcularXP() {
-        return XP_PADRAO + 20d; //sempre que uma mentoria for criada o xp tem acrescimo de 20
-    }
-}
+
 ~~~
 
 <h3>🔻 OBSERVER: </h3>
