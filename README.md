@@ -111,11 +111,6 @@ public class FacadeDev {
 ~~~
 
 <h3>🔻 STRATEGY: </h3>
-Nos objetos curso e mentoria, cada um tem uma implementação distinta. Entretanto, 
-as duas classes herdam de Conteúdo. Portanto, para diferenciar suas implementações, 
-o metódo foi isolado e colocado dentro de uma interface. E essa interface foi implementada dentro 
-da classe Conteúdo fazendo com que as classes principais, Curso e Mentoria, pudessem herdar esse método e cada uma definir sua regra para implementação
-
 
 Nos objetos curso e mentoria, cada um tem uma implementação distinta. 
 Portanto, foi criado uma interface geral que contém a assinatura desse método. 
