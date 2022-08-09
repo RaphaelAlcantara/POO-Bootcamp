@@ -9,13 +9,12 @@ import br.ifpe.project.padroes.Observer.Observador;
 
 public class BootcampRepository {
     List<Bootcamp> bootcampList = new ArrayList<>();
-    List<Dev> devs = new ArrayList<>();
     List<Observador> observadores = new ArrayList<>();
 
     public void create(Bootcamp bootcamp) {
         if (bootcamp != null) {
             bootcampList.add(bootcamp);
-            notificarObservadores();
+            notificarObservadores(bootcamp);
 
 
         }
@@ -67,9 +66,9 @@ public class BootcampRepository {
         observadores.remove(observador);
     }
 
-    public void notificarObservadores(){
+    public void notificarObservadores(Bootcamp bootcamp){
         for(Observador ob : observadores){
-            ob.enviarNotificacao(devs);
+            ob.enviarNotificacao(bootcamp);
         }
     }
 

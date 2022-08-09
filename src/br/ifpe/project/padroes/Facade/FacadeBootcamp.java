@@ -12,6 +12,8 @@ import java.util.List;
 public class FacadeBootcamp {
     private BootcampRepository rBootcamp = null;
 
+    Bootcamp bootcamp = new Bootcamp();
+
     public FacadeBootcamp() {
         this.rBootcamp = new BootcampRepository();
     }
@@ -40,7 +42,7 @@ public class FacadeBootcamp {
     }
 
     public void notificarObservadores(){
-        this.rBootcamp.notificarObservadores();
+        this.rBootcamp.notificarObservadores(bootcamp);
     }
 
 

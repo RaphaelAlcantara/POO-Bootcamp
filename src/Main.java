@@ -50,9 +50,7 @@ public class Main {
         facadeBootcamp.inscreverDevNoBootcamp(Dev1, bootcamp1);
         facadeBootcamp.adicionarObservador(Dev1);
 
-        System.out.println("---- Envio Notificação ----");
-        System.out.println("Notificação de " + Dev1.getNome());
-        facadeBootcamp.notificarObservadores();
+        System.out.println("ÁREA DEV: " + Dev1.getNome());
         System.out.println();
         facadeDev.progredirDev(Dev1);
         facadeDev.mostrarInformacoesDev(Dev1);
@@ -74,16 +72,17 @@ public class Main {
         facadeDev.progredirDev(dev2);
         facadeDev.progredirDev(dev2);
 
-        System.out.println("---- Envio Notificação ----");
-        System.out.println("Notificação de " + dev2.getNome());
-        facadeBootcamp.notificarObservadores();
+        System.out.println("AREA DEV: " + dev2.getNome());
         System.out.println();
+
         facadeDev.mostrarInformacoesDev(dev2);
         System.out.println("--------------------------------------------------------------------------------");
 
 
+        System.out.println("Notificação do sistema: ");
         Bootcamp bootcamp3 = new Bootcamp("Python Developer", "Descrição do Bootcamp de Python");
         facadeBootcamp.createBootcamp(bootcamp3);
+
 
 
 
