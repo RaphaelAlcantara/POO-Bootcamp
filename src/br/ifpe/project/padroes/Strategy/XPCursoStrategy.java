@@ -4,6 +4,7 @@ import br.ifpe.project.model.negocios.Conteudo;
 
 public class XPCursoStrategy extends Conteudo {
 
+    private static final double XPPADRAO = 10d;
     private int cargaHoraria;
 
     public int getCargaHoraria() {
@@ -16,6 +17,6 @@ public class XPCursoStrategy extends Conteudo {
 
     @Override
     public double calcularXP() {
-        return XP_PADRAO * cargaHoraria;
+        return XPPADRAO * cargaHoraria;
     }
 }
