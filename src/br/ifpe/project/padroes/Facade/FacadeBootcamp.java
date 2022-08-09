@@ -11,17 +11,29 @@ import java.util.List;
 
 public class FacadeBootcamp {
     private BootcampRepository rBootcamp = null;
-
     Bootcamp bootcamp = new Bootcamp();
-
-    public FacadeBootcamp() {
+    static private FacadeBootcamp instanceFacadeBootcamp;
+    private FacadeBootcamp() {
         this.rBootcamp = new BootcampRepository();
     }
+
+    //Lazy INITIALIZATION
+    public static FacadeBootcamp getCurrentInstance(){
+        if(instanceFacadeBootcamp == null){
+            synchronized (FacadeBootcamp.class){
+                if(instanceFacadeBootcamp == null){
+                    instanceFacadeBootcamp = new FacadeBootcamp();
+                }
+            }
+
+        }
+        return instanceFacadeBootcamp;
+    }
+
 
     public void createBootcamp(Bootcamp b) {
         this.rBootcamp.create(b);
     }
-
 
     public void inserirConteudosNoBootcamp(Bootcamp bootcamp, Curso curso, Mentoria mentoria) {
         bootcamp.getConteudos().add(curso);

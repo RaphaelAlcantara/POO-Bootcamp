@@ -11,10 +11,10 @@ import br.ifpe.project.padroes.Facade.FacadeMentoria;
 //Criação de um bootcamp
 public class Main {
     public static void main(String[] args) {
-        FacadeDev facadeDev = new FacadeDev();
-        FacadeBootcamp facadeBootcamp = new FacadeBootcamp();
-        FacadeCurso facadeCurso = new FacadeCurso();
-        FacadeMentoria facadeMentoria = new FacadeMentoria();
+        FacadeDev facadeDev = FacadeDev.getCurrentInstance();
+        FacadeBootcamp facadeBootcamp = FacadeBootcamp.getCurrentInstance();
+        FacadeCurso facadeCurso = FacadeCurso.getCurrentInstance();
+        FacadeMentoria facadeMentoria = FacadeMentoria.getCurrentInstance();
 
         Curso curso1 = new Curso("Curso Java", "Descrição do curso de Java", 8);
         facadeCurso.createCurso(curso1);

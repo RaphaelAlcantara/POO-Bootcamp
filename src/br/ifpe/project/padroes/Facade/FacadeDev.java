@@ -15,8 +15,21 @@ import java.util.List;
 public class FacadeDev {
     private DevRepository rDev = null;
 
-    public FacadeDev() {
+    static private FacadeDev instanceFacadeDev;
+
+    private FacadeDev() {
         this.rDev = new DevRepository();
+    }
+    public static FacadeDev getCurrentInstance(){
+        if(instanceFacadeDev == null){
+            synchronized (FacadeBootcamp.class){
+                if(instanceFacadeDev == null){
+                    instanceFacadeDev = new FacadeDev();
+                }
+            }
+
+        }
+        return instanceFacadeDev;
     }
 
     public void createDev(Dev d) {
