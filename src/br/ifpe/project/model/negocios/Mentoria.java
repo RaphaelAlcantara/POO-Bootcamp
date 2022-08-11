@@ -1,12 +1,10 @@
 package br.ifpe.project.model.negocios;
 
-import br.ifpe.project.padroes.Strategy.XPMentoriaStrategy;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-public class Mentoria extends XPMentoriaStrategy {
+public class Mentoria extends Conteudo {
 
     public Mentoria(String titulo, String descricao){
         this.setTitulo(titulo);
@@ -15,6 +13,11 @@ public class Mentoria extends XPMentoriaStrategy {
     }
 
     public Mentoria() {}
+
+    @Override
+    public double calcularXP() {
+        return XP_PADRAO + 20d;
+    }
 
     private LocalDate data;
 
@@ -25,6 +28,8 @@ public class Mentoria extends XPMentoriaStrategy {
     public void setData(LocalDate data) {
         this.data = data;
     }
+
+
 
     @Override
     public String toString() {

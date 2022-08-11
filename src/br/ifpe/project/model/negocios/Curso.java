@@ -1,8 +1,6 @@
 package br.ifpe.project.model.negocios;
 
-import br.ifpe.project.padroes.Strategy.XPCursoStrategy;
-
-public class Curso extends XPCursoStrategy{
+public class Curso extends Conteudo{
 
     private String titulo;
     private String descricao;

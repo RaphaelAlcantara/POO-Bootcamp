@@ -9,6 +9,7 @@ import br.ifpe.project.padroes.Observer.Observador;
 
 public class BootcampRepository {
     List<Bootcamp> bootcampList = new ArrayList<>();
+    List<Dev> devs = new ArrayList<>();
     List<Observador> observadores = new ArrayList<>();
 
     public void create(Bootcamp bootcamp) {

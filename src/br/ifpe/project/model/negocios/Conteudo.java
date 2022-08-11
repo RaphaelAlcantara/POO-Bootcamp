@@ -2,10 +2,9 @@ package br.ifpe.project.model.negocios;
 //mentoria e curso são conteudos
 //protected apenas os filhos podem acessar
 
-import br.ifpe.project.padroes.Strategy.XPStrategy;
+public  abstract  class Conteudo{
 
-public  abstract  class Conteudo implements XPStrategy {
-
+    protected static double XP_PADRAO = 10d;
     //adicionar o que as classes tem em comum
     private String titulo;
     private String descricao;
@@ -33,6 +32,6 @@ public  abstract  class Conteudo implements XPStrategy {
 
 
     //Criar metodo para calcular XP e o abstract para que as classes filhas implementem obrigatoriamente
-    //public abstract double calcularXP();
+    public abstract double calcularXP();
 }
 

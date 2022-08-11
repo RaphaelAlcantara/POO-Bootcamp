@@ -82,6 +82,9 @@ public class Main {
         System.out.println("Notificação do sistema: ");
         Bootcamp bootcamp3 = new Bootcamp("Python Developer", "Descrição do Bootcamp de Python");
         facadeBootcamp.createBootcamp(bootcamp3);
+        //Sempre que crio um bootcamp, envio notificação para os observadores.
+        // Dentro do método createBootcamp, contém o método "notificarObservadores"
+
 
 
 

@@ -91,6 +91,5 @@ public class Dev implements Observador {
     public void enviarNotificacao(Bootcamp bootcamp) {
         System.out.println("==== Novo Bootcamp na plataforma ====");
         System.out.println("Inscreva-se agora no " + bootcamp.getNome() + "!!!");
-
     }
 }
