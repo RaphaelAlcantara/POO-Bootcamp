@@ -300,8 +300,8 @@ public static void main(String[] args) {
 🔸 <strong>Sobre a  atividade: </strong><br>
 Está atividade prática corresponde a disciplina de padrões de projeto do 4º período do curso de Análise e desenvolimento de sistemas<br>
 <br>
-🔸  1.1 MENTOR: PAULO GONÇALVES <br>
-🔸  1.2 ANO: 2022 <br>
+🔸  - MENTOR: PAULO GONÇALVES <br>
+🔸  - ANO: 2022 <br>
 <br>
 </p>
 
