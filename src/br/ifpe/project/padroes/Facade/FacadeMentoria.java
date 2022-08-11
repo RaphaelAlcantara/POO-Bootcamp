@@ -3,11 +3,9 @@ package br.ifpe.project.padroes.Facade;
 import br.ifpe.project.model.negocios.Mentoria;
 import br.ifpe.project.padroes.Repository.MentoriaRepository;
 
-import java.util.List;
-
 public class FacadeMentoria {
-    private MentoriaRepository rMentoria = null;
-    static private FacadeMentoria instanceFacadeMentoria;
+    private final MentoriaRepository rMentoria;
+    static private volatile FacadeMentoria instanceFacadeMentoria;
 
     private FacadeMentoria() {
         this.rMentoria = new MentoriaRepository();

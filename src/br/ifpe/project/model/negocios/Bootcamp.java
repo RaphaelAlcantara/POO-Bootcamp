@@ -1,15 +1,12 @@
 package br.ifpe.project.model.negocios;
 
-import br.ifpe.project.padroes.Observer.Observador;
-
 import java.time.LocalDate;
-import java.util.*;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Objects;
+import java.util.Set;
 
 public class Bootcamp {
-
-    List<Dev> devs = new ArrayList<>();
-    List<Observador> observadores = new ArrayList<>();
-    List<Bootcamp> bootcampList = new ArrayList<>();
 
     public Bootcamp(String nome, String descricao){
         this.nome = nome;
@@ -24,9 +21,9 @@ public class Bootcamp {
     private final LocalDate dataInicial = LocalDate.now();
     private final LocalDate dataFinal = LocalDate.now().plusDays(45);//45 dias a mais para o fim do bootcamp
     //grupo de devs que irão participar do bootcamp não existem duplicatas
-    private Set<Dev> devsInscritos = new HashSet<>();
+    private final Set<Dev> devsInscritos = new HashSet<>();
     //cursos e mentorias que fazem parte do bootcamp
-    private Set<Conteudo> conteudos = new LinkedHashSet<>(); //ordem de inserção é importante
+    private final Set<Conteudo> conteudos = new LinkedHashSet<>(); //ordem de inserção é importante
 
     public String getNome() {
         return nome;
@@ -44,28 +41,12 @@ public class Bootcamp {
         this.descricao = descricao;
     }
 
-    public LocalDate getDataInicial() {
-        return dataInicial;
-    }
-
-    public LocalDate getDataFinal() {
-        return dataFinal;
-    }
-
     public Set<Dev> getDevsInscritos() {
         return devsInscritos;
     }
 
-    public void setDevsInscritos(Set<Dev> devsInscritos) {
-        this.devsInscritos = devsInscritos;
-    }
-
     public Set<Conteudo> getConteudos() {
         return conteudos;
-    }
-
-    public void setConteudos(Set<Conteudo> conteudos) {
-        this.conteudos = conteudos;
     }
 
     @Override

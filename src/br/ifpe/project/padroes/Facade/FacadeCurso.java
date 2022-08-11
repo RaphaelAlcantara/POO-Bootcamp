@@ -6,19 +6,14 @@ import br.ifpe.project.padroes.Repository.CursoRepository;
 
 public class FacadeCurso {
 
-    private CursoRepository rCurso = null;
-    static  private FacadeCurso instanceFacadeCurso;
+    private final CursoRepository rCurso;
+
+    private static final class InstanceFacadeCursoHolder {
+        static private final FacadeCurso instanceFacadeCurso = new FacadeCurso();
+    }
 
     public static FacadeCurso getCurrentInstance(){
-        if(instanceFacadeCurso == null){
-            synchronized (FacadeBootcamp.class){
-                if(instanceFacadeCurso == null){
-                    instanceFacadeCurso = new FacadeCurso();
-                }
-            }
-
-        }
-        return instanceFacadeCurso;
+        return InstanceFacadeCursoHolder.instanceFacadeCurso;
     }
 
     private FacadeCurso() {

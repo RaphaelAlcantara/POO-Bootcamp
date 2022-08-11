@@ -1,21 +1,12 @@
 package br.ifpe.project.padroes.Facade;
 
-import br.ifpe.project.padroes.Observer.Observador;
-import br.ifpe.project.padroes.Repository.CursoRepository;
-import br.ifpe.project.padroes.Repository.DevRepository;
-import br.ifpe.project.padroes.Repository.MentoriaRepository;
-import br.ifpe.project.padroes.Repository.BootcampRepository;
-import br.ifpe.project.model.negocios.Bootcamp;
-import br.ifpe.project.model.negocios.Curso;
 import br.ifpe.project.model.negocios.Dev;
-import br.ifpe.project.model.negocios.Mentoria;
-
-import java.util.List;
+import br.ifpe.project.padroes.Repository.DevRepository;
 
 public class FacadeDev {
-    private DevRepository rDev = null;
+    private final DevRepository rDev;
 
-    static private FacadeDev instanceFacadeDev;
+    static private volatile FacadeDev instanceFacadeDev;
 
     private FacadeDev() {
         this.rDev = new DevRepository();

@@ -17,14 +17,13 @@ public class Dev implements Observador {
     }
 
     //utilizando o Set pois não tem repetição de valores
-    private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>(); //LinkedHashSet para que os valores sejam ordenados pelo inserção
-    private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
+    private final Set<Conteudo> conteudosInscritos = new LinkedHashSet<>(); //LinkedHashSet para que os valores sejam ordenados pelo inserção
+    private final Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
 
     //Criação de metodos
-    public Set<Conteudo> inscreverBootcamp(Bootcamp bootcamp){
+    public void inscreverBootcamp(Bootcamp bootcamp){
         this.conteudosInscritos.addAll(bootcamp.getConteudos()); //adiciona todos os conteudos do bootcamp ao dev
         bootcamp.getDevsInscritos().add(this); //adiciona o dev ao bootcamp
-        return null;
     }
 
     public void progredir(){
@@ -59,16 +58,8 @@ public class Dev implements Observador {
         return conteudosInscritos;
     }
 
-    public void setConteudosInscritos(Set<Conteudo> conteudosInscritos) {
-        this.conteudosInscritos = conteudosInscritos;
-    }
-
     public Set<Conteudo> getConteudosConcluidos() {
         return conteudosConcluidos;
-    }
-
-    public void setConteudosConcluidos(Set<Conteudo> conteudosConcluidos) {
-        this.conteudosConcluidos = conteudosConcluidos;
     }
 
     //implemntar o equals e o hashCode para que o Set funcione corretamente

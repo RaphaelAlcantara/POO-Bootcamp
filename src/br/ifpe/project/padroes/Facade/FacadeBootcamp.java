@@ -7,27 +7,20 @@ import br.ifpe.project.model.negocios.Mentoria;
 import br.ifpe.project.padroes.Observer.Observador;
 import br.ifpe.project.padroes.Repository.BootcampRepository;
 
-import java.util.List;
-
 public class FacadeBootcamp {
-    private BootcampRepository rBootcamp = null;
-    Bootcamp bootcamp = new Bootcamp();
-    static private FacadeBootcamp instanceFacadeBootcamp;
+    private final BootcampRepository rBootcamp;
+
     private FacadeBootcamp() {
         this.rBootcamp = new BootcampRepository();
     }
 
+    private static final class InstanceFacadeBootcampHolder {
+        static private final FacadeBootcamp instanceFacadeBootcamp = new FacadeBootcamp();
+    }
+
     //Lazy INITIALIZATION
     public static FacadeBootcamp getCurrentInstance(){
-        if(instanceFacadeBootcamp == null){
-            synchronized (FacadeBootcamp.class){
-                if(instanceFacadeBootcamp == null){
-                    instanceFacadeBootcamp = new FacadeBootcamp();
-                }
-            }
-
-        }
-        return instanceFacadeBootcamp;
+        return InstanceFacadeBootcampHolder.instanceFacadeBootcamp;
     }
 
 
@@ -48,15 +41,6 @@ public class FacadeBootcamp {
     public void adicionarObservador(Observador observador){
         this.rBootcamp.adicionarObservador(observador);
     }
-
-    public void removerObservador(Observador observador){
-        this.rBootcamp.removerObservador(observador);
-    }
-
-    public void notificarObservadores(){
-        this.rBootcamp.notificarObservadores(bootcamp);
-    }
-
 
 
 }
