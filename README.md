@@ -37,11 +37,6 @@ Fornece uma interface unificada para um conjunto de interfaces em um subsistema.
 
 <p>O padrão Repository separa a lógica de acesso a dados e mapeia essa lógica para entidades na lógica de negócio. Ele trabalha com as entidades de domínio e realiza a lógica de acesso a dados. </p>
 
-<h3> 🔺 STRATEGY:</h3>
-
-<p>Definir uma família de algoritmos, encapsular cada uma delas e torná-las intercambiáveis. Strategy permite que o algoritmo varie independentemente dos clientes que o utilizam.</p>
-<br>
-
 
 <h2 align="center"> APLICAÇÃO DOS PADRÕES NO CÓDIGO  ‼️ </h2>
 <p>
@@ -110,62 +105,6 @@ public class FacadeDev {
 
 ~~~
 
-<h3>🔻 STRATEGY: </h3>
-
-Nos objetos curso e mentoria, cada um tem uma implementação distinta. 
-Portanto, foi criado uma interface geral que contém a assinatura desse método. 
-Esta interface é implementada dentro da classe conteúdo e contém uma assinatura desse método, 
-e para isolar de forma mais efetiva, criou-se uma classe para cada regra do XP. 
-XPCursoStrategy contém a implementação do método referente a curso, e é implementada na classe modelo Curso.
-
-A classe Curso necessita de uma implementação concreta do método na própria classe visto que este método é chamado na classe Dev
-
-Já a classe Mentoria implementa a classe XPMentoriaStrategy. Nesta classe contém a implementação isolada do método que diz respeito somente a mentoria.
-~~~
-public interface XPStrategy {
-
-    double XP_PADRAO = 10d;
-    double calcularXP();
-}
-
-
-public  abstract  class Conteudo implements XPStrategy {
-
-    //adicionar o que as classes tem em comum
-    private String titulo;
-    private String descricao;
-    
- }
- 
-public class XPCursoStrategy extends Conteudo {
-    
-    @Override
-    public double calcularXP() {
-        return XP_PADRAO * cargaHoraria;
-    }
-}
-
-public class XPMentoriaStrategy extends Conteudo {
-
-    @Override
-    public double calcularXP() {
-        return XP_PADRAO + 20d;
-    }
-}
-
-public class Curso extends XPCursoStrategy{
-
-@Override
-    public double calcularXP() {
-        return XP_PADRAO * cargaHoraria; //sempre que um curso for criado o xp multiplicado por hr
-    }
-    
-}
-
-public class Mentoria extends XPMentoriaStrategy {}
-
-
-~~~
 
 <h3>🔻 OBSERVER: </h3>
 Para um sistema que possui Cursos, mentorias, bootcamps e Devs ficaria ainda melhor se a cada bootcamp criado, os devs cadastrados fossem notificados desse bootcamp. Portanto, foi criado o padrão de projeto Observer.
